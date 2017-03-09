@@ -12,9 +12,18 @@ For more detailed documentation http://the-container-store.github.io/Gradle-Rele
 git tag -a 0.9.1 -m "Bootstrapping version"
 ----
 
-4. Generate the property file
+4. Generate the property file for snapshot builds
 
 [source,bash]
 ----
 ./gradlew generateBuildPropertyFile
 ----
+
+4. Generate the property file in team city. Note that we bundled running sonar when we do release builds. The `-x sonarqube` skips running that task.
+
+[source,bash]
+----
+./gradlew buildReleaseCandidate -x sonarqube
+----
+
+5. The build files will be generated with the right metadata in `build/build.properties` folder
