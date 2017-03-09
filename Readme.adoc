@@ -1,0 +1,20 @@
+= Getting started
+
+For more detailed documentation http://the-container-store.github.io/Gradle-Releaser/[visit the plugin documenation].
+
+== Using it for non-java projects
+1. https://github.com/dilipkrish/gradle-releaser-non-java/blob/master/settings.gradle#L18[Rename the project] in the settings.gradle
+2. Add the .version file with a version (currently uses maven convention) e.g. 0.9.1-SNAPSHOT
+3. Tag the the repository with an annotated tag
+
+[source,bash]
+----
+git tag -a 0.9.1 -m "Bootstrapping version"
+----
+
+4. Generate the property file
+
+[source,bash]
+----
+./gradlew generateBuildPropertyFile
+----
